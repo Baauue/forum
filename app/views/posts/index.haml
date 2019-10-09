@@ -1,12 +1,8 @@
 %h1 Hi there! This is the index page.
-- @posts.each do |post|
-  %h2= post.title 
-  %p= post.content
-  = link_to "Edit", edit_post_path(post)
-  = link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure you want to delete this?"}
-  %br
+
+-@posts.each do |post|
+  %h2= link_to post.title, post
+  %p
   Published at
-  = time_ago_in_words(post.created_at)
-%br
-%br
-=link_to 'New Post', new_post_path
+  =time_ago_in_words(post.created_at)
+  =post.user.email
