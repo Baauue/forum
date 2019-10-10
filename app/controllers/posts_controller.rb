@@ -21,7 +21,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		@arr = [['Chris Kroon', '10++'],['Duco Drupsteen', '10'], ['Boue', [1,2,3,4,5,6,7].sample], ['Oliver', [1,2,3,4,5,6,7].sample]]
 	end
 
 	def edit
