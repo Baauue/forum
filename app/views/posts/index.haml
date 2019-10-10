@@ -1,8 +1,11 @@
 #posts
- - @posts.each do |post|
-  .post
-   %h2.title= link_to post.title, post
-   %p.date
-    Published at
-    = time_ago_in_words(post.created_at)
-    = post.user.email
+  -if current_user
+    - @posts.each do |post|
+      .post
+      %h2.title= link_to post.title, post
+      %p.date
+        Published at
+        = time_ago_in_words(post.created_at)
+        = post.user.email
+  -else
+    You need to login to go further

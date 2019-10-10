@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all.order("created_at DESC")
+		@users = User.all
 	end
 
 	def new
@@ -32,11 +33,6 @@ class PostsController < ApplicationController
   		else
   			render 'edit'
   		end
-	end
-
-	def destroy
-		@post.destroy
-		redirect_to root_path
 	end
 
 

@@ -5,4 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts
   has_many :comments
+
+  after_destroy :fix_posts
+
+  def fix_posts
+  	posts.destroy_all
+  end
 end
