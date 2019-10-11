@@ -21,6 +21,14 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def destroy
+  		post = Post.find(params[:id])
+  		comment = @post.comments
+  		comment.destroy_all
+  		post.destroy
+  		redirect_to root_path
+ 	end
+
 	def show
 	end
 
@@ -44,5 +52,4 @@ class PostsController < ApplicationController
 	def find_post
 		@post = Post.find(params[:id])
 	end
-
 end

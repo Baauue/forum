@@ -4,8 +4,10 @@
       .post
       %h2.title= link_to post.title, post
       %p.date
-        Published at
+        Published
         = time_ago_in_words(post.created_at)
-        = post.user.email
+        ago
+        = post.user.first_name
+        = post.user.last_name
   -else
     You need to login to go further
